@@ -136,12 +136,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const correspondingLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
 
             if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                correspondingLink?.classList.add('active');
-                // Add visual indicator for active link
-                correspondingLink?.style.color = 'var(--primary-color)';
+                if (correspondingLink) {
+                    correspondingLink.classList.add('active');
+                    // Add visual indicator for active link
+                    correspondingLink.style.color = 'var(--primary-color)';
+                }
             } else {
-                correspondingLink?.classList.remove('active');
-                correspondingLink?.style.color = '';
+                if (correspondingLink) {
+                    correspondingLink.classList.remove('active');
+                    correspondingLink.style.color = '';
+                }
             }
         });
     }
