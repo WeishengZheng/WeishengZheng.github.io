@@ -954,3 +954,65 @@ section {
 .project-card:nth-child(4) {
     transition-delay: 0.4s;
 }
+
+/* ============================================
+   ORGANIZATION PAGE
+   ============================================ */
+.org-hero {
+    padding: 10rem 0 6rem;
+    background: var(--bg-primary);
+    text-align: center;
+}
+
+.org-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.org-hero-logo {
+    width: 150px;
+    height: 150px;
+}
+
+.org-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+}
+
+.org-tagline {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+}
+
+.org-about {
+    background: var(--bg-secondary);
+    padding: 6rem 0;
+}
+
+.org-about-content {
+    max-width: 800px;
+}
+
+.org-intro {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.org-about-content p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+}
+
+.org-projects {
+    background: var(--bg-primary);
+    padding: 6rem 0;
+}
