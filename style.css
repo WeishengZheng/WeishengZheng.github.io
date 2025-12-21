@@ -656,16 +656,34 @@ section {
     letter-spacing: 0.05em;
 }
 
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
 .project-link {
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--text-primary);
     text-decoration: none;
     transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
 }
 
 .project-link:hover {
-    text-decoration: underline;
+    background: var(--text-primary);
+    color: var(--bg-secondary);
+}
+
+.project-link.demo {
+    background: var(--text-primary);
+    color: var(--bg-secondary);
+}
+
+.project-link.demo:hover {
+    background: transparent;
+    color: var(--text-primary);
 }
 
 .projects-cta {
