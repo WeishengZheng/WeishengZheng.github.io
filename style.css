@@ -316,6 +316,17 @@ body {
     color: var(--text-secondary);
 }
 
+.meta-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.org-logo {
+    width: 24px;
+    height: 24px;
+}
+
 .hero-title {
     font-size: clamp(2rem, 8vw, 4.5rem);
     font-weight: 900;
