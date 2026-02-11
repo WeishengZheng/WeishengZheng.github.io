@@ -139,8 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     coherence = neighborCount > 0 ? coherence / neighborCount : 0;
                     // coherence is 0..1, where 1 = all neighbors point the same way
 
-                    // Wave boost: vectors in coherent streams glow brighter
-                    const waveBoost = coherence * coherence; // ease-in for sharper waves
+                    // Wave boost: sharp contrast — cube for dramatic falloff
+                    const waveBoost = coherence * coherence * coherence;
 
                     // Color
                     const colorIndex = Math.abs(Math.floor(
@@ -148,19 +148,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     )) % colors.length;
                     const color = colors[colorIndex];
 
-                    // Opacity: base + mouse + wave coherence
-                    const baseOpacity = 0.1 + Math.abs(noise(x, y, time * 0.5)) * 0.08;
-                    const opacity = Math.min(0.85,
-                        baseOpacity + influenceFactor * 0.5 + waveBoost * 0.35
+                    // Opacity: very dim base, huge wave boost
+                    const baseOpacity = 0.03 + Math.abs(noise(x, y, time * 0.5)) * 0.03;
+                    const opacity = Math.min(0.9,
+                        baseOpacity + influenceFactor * 0.6 + waveBoost * 0.7
                     );
 
-                    // Width: thicker in waves and near mouse
-                    const lineWidth = 1 + waveBoost * 1.5 + influenceFactor * 2;
+                    // Width: thin base, much thicker in waves
+                    const lineWidth = 0.5 + waveBoost * 3 + influenceFactor * 2.5;
 
-                    // Length: longer in coherent streams
-                    const len = LINE_LENGTH * (0.5 + waveBoost * 0.4 + influenceFactor * 0.4);
+                    // Length: short base, much longer in coherent streams
+                    const len = LINE_LENGTH * (0.3 + waveBoost * 0.8 + influenceFactor * 0.5);
                     const endX = x + Math.cos(angle) * len;
                     const endY = y + Math.sin(angle) * len;
+
+                    // Skip nearly invisible vectors for performance
+                    if (opacity < 0.02) continue;
 
                     // Draw the vector
                     ctx.beginPath();
@@ -172,11 +175,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     ctx.stroke();
 
                     // Glow dot at tip for coherent streams or mouse-influenced vectors
-                    if (waveBoost > 0.5 || influenceFactor > 0.15) {
-                        const dotSize = 1.5 + waveBoost * 1.5 + influenceFactor * 2;
+                    if (waveBoost > 0.3 || influenceFactor > 0.15) {
+                        const dotSize = 1 + waveBoost * 3 + influenceFactor * 2.5;
                         ctx.beginPath();
                         ctx.arc(endX, endY, dotSize, 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity * 0.6})`;
+                        ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity * 0.5})`;
                         ctx.fill();
                     }
                 }
