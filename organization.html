@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zero AI Hub - AI Development Organization">
+    <meta name="description" content="Zero AI Hub — A student organization exploring AI-assisted development.">
     <title>Zero AI Hub | Organization</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,7 +18,9 @@
     <!-- Navigation Bar -->
     <nav class="navbar scrolled">
         <div class="container">
-            <a href="index.html" class="nav-brand">Weisheng Zheng</a>
+            <a href="index.html" class="nav-brand">
+                <span class="brand-accent">W</span>Z
+            </a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="index.html#about" class="nav-link">About</a></li>
@@ -27,6 +30,7 @@
                 <li><a href="index.html#contact" class="nav-link">Contact</a></li>
             </ul>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
                 <span></span>
                 <span></span>
             </button>
@@ -47,9 +51,9 @@
     <!-- About Organization -->
     <section class="org-about">
         <div class="container">
-            <div class="section-header">
-                <span class="section-number">01</span>
-                <h2 class="section-title">About the Organization</h2>
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">01 — About</span>
             </div>
             <div class="org-about-content">
                 <p class="org-intro">
@@ -70,24 +74,36 @@
     <!-- Organization Projects -->
     <section class="org-projects">
         <div class="container">
-            <div class="section-header">
-                <span class="section-number">02</span>
-                <h2 class="section-title">Projects</h2>
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">02 — Projects</span>
             </div>
+            <h2 class="section-headline">What we've built</h2>
+
             <div class="projects-grid">
                 <article class="project-card">
-                    <span class="project-badge ai">Game</span>
+                    <div class="project-top">
+                        <span class="project-badge badge-ai">Game</span>
+                    </div>
                     <h3>C-hess</h3>
                     <p>A game of chess made with Opus 4.5. It uses raylib and pure C.</p>
                     <div class="project-tech">
                         <span>C</span>
                         <span>Raylib</span>
                     </div>
-                    <a href="https://github.com/Zero-AI-Hub/C-hess" target="_blank" class="project-link">GitHub</a>
+                    <a href="https://github.com/Zero-AI-Hub/C-hess" target="_blank" class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
                 </article>
 
                 <article class="project-card">
-                    <span class="project-badge ai">Web App</span>
+                    <div class="project-top">
+                        <span class="project-badge badge-ai">Web App</span>
+                    </div>
                     <h3>EvoSim</h3>
                     <p>Browser-based evolutionary simulation where plants, herbivores, and predators interact and
                         evolve.</p>
@@ -95,11 +111,19 @@
                         <span>JavaScript</span>
                         <span>Canvas</span>
                     </div>
-                    <a href="https://github.com/Zero-AI-Hub/EvoSim" target="_blank" class="project-link">GitHub</a>
+                    <a href="https://github.com/Zero-AI-Hub/EvoSim" target="_blank" class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
                 </article>
 
                 <article class="project-card">
-                    <span class="project-badge ai">Web App</span>
+                    <div class="project-top">
+                        <span class="project-badge badge-ai">Web App</span>
+                    </div>
                     <h3>Background Creator</h3>
                     <p>Browser-based wallpaper generator with geometric patterns, symmetry modes, and real-time
                         preview.</p>
@@ -108,11 +132,19 @@
                         <span>Canvas API</span>
                     </div>
                     <a href="https://github.com/Zero-AI-Hub/CleanBackgroundCreator" target="_blank"
-                        class="project-link">GitHub</a>
+                        class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
                 </article>
 
                 <article class="project-card">
-                    <span class="project-badge ai">Tool</span>
+                    <div class="project-top">
+                        <span class="project-badge badge-ai">Tool</span>
+                    </div>
                     <h3>Pixel Art Transformer</h3>
                     <p>Trying to make AI fake pixel art to useful real pixel art.</p>
                     <div class="project-tech">
@@ -120,11 +152,19 @@
                         <span>Image Processing</span>
                     </div>
                     <a href="https://github.com/Zero-AI-Hub/PythonPixelArtTransformer" target="_blank"
-                        class="project-link">GitHub</a>
+                        class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
                 </article>
 
                 <article class="project-card">
-                    <span class="project-badge ai">Game</span>
+                    <div class="project-top">
+                        <span class="project-badge badge-ai">Game</span>
+                    </div>
                     <h3>Tetris-py</h3>
                     <p>A small tetris game created with Python and the Arcade library. Fully vibecoded with Opus 4.5.
                     </p>
@@ -132,21 +172,37 @@
                         <span>Python</span>
                         <span>Arcade</span>
                     </div>
-                    <a href="https://github.com/Zero-AI-Hub/tetris-py" target="_blank" class="project-link">GitHub</a>
+                    <a href="https://github.com/Zero-AI-Hub/tetris-py" target="_blank" class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
                 </article>
 
                 <article class="project-card">
-                    <span class="project-badge ai">Hardware</span>
+                    <div class="project-top">
+                        <span class="project-badge badge-ai">Hardware</span>
+                    </div>
                     <h3>8-bit CPU</h3>
                     <p>A small stack based 8-bit CPU. Entirely vibecoded with Opus 4.5.</p>
                     <div class="project-tech">
                         <span>VHDL</span>
                     </div>
-                    <a href="https://github.com/Zero-AI-Hub/8-bit-cpu" target="_blank" class="project-link">GitHub</a>
+                    <a href="https://github.com/Zero-AI-Hub/8-bit-cpu" target="_blank" class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
                 </article>
 
                 <article class="project-card">
-                    <span class="project-badge ai">Desktop App</span>
+                    <div class="project-top">
+                        <span class="project-badge badge-ai">Desktop App</span>
+                    </div>
                     <h3>D&D 5e Character Manager</h3>
                     <p>D&D 5e Character Sheet Manager — Electron + React + TypeScript.</p>
                     <div class="project-tech">
@@ -155,11 +211,24 @@
                         <span>Electron</span>
                     </div>
                     <a href="https://github.com/Zero-AI-Hub/dnd5e-character-manager" target="_blank"
-                        class="project-link">GitHub</a>
+                        class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
                 </article>
             </div>
+
             <div class="projects-cta">
-                <a href="https://github.com/Zero-AI-Hub" target="_blank" class="btn btn-outline">View All on GitHub</a>
+                <a href="https://github.com/Zero-AI-Hub" target="_blank" class="btn btn-ghost">
+                    View All on GitHub
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                        <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
@@ -167,7 +236,10 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© 2026 Zero AI Hub • AI in Code: Learning & Building with Gen AI</p>
+            <div class="footer-content">
+                <span class="footer-brand"><span class="brand-accent">Z</span>AH</span>
+                <p>© 2026 Zero AI Hub • AI in Code: Learning & Building with Gen AI</p>
+            </div>
         </div>
     </footer>
 

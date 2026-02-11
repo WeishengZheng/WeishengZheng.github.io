@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Weisheng Zheng - CS & CE Student | AI Developer | ZeroDivisionError">
+    <meta name="description"
+        content="Weisheng Zheng — CS & CE student focused on ML/RL infrastructure and performance engineering.">
     <title>Weisheng Zheng | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,7 +19,9 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
-            <a href="#hero" class="nav-brand">Weisheng Zheng</a>
+            <a href="#hero" class="nav-brand">
+                <span class="brand-accent">W</span>Z
+            </a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#hero" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -29,91 +33,125 @@
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
+                <span></span>
             </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
-        <div class="hero-grain grain-1"></div>
-        <div class="hero-grain grain-2"></div>
-        <div class="hero-grain grain-3"></div>
-        <div class="hero-grain grain-4"></div>
-
-        <!-- Corner Decorations -->
-        <div class="corner-decoration top-left"></div>
-        <div class="corner-decoration top-right"></div>
-        <div class="corner-decoration bottom-left"></div>
-        <div class="corner-decoration bottom-right"></div>
+        <div class="hero-bg-grid"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
 
         <div class="container">
             <div class="hero-content">
-                <!-- Center Circle -->
-                <div class="hero-circle"></div>
-                <div class="hero-title-box">
-                    <div class="hero-meta">
-                        <span class="meta-left">ZeroDivisionError</span>
-                        <span class="meta-right">
-                            <img src="logo.svg" alt="Zero AI Hub Logo" class="org-logo">
-                            ZERO AI HUB
-                        </span>
-                    </div>
-                    <h1 class="hero-title">WEISHENG ZHENG</h1>
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Open to opportunities
                 </div>
-                <p class="hero-subtitle">CS & CE Student • ML/RL Infrastructure • Performance Engineering</p>
+                <h1 class="hero-title">
+                    <span class="title-line">Weisheng</span>
+                    <span class="title-line title-gradient">Zheng</span>
+                </h1>
+                <p class="hero-subtitle">CS & CE Student building towards<br>
+                    <span class="typed-text">ML/RL Infrastructure & Performance Engineering</span>
+                </p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Contact</a>
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View Projects</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">5+</span>
+                        <span class="stat-label">Languages</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-value">ICPC</span>
+                        <span class="stat-label">Contestant</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-value">7+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="scroll-indicator">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
+            <div class="scroll-mouse">
+                <div class="scroll-dot"></div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-header">
-                <span class="section-number">01</span>
-                <h2 class="section-title">About Me</h2>
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">01 — About Me</span>
             </div>
-            <div class="about-grid">
-                <div class="about-content">
-                    <p class="about-intro">
-                        I'm passionate about building the <strong>infrastructure</strong> that makes Machine Learning
-                        and Reinforcement Learning systems run faster and more efficiently.
-                    </p>
-                    <p>
-                        My focus is on <strong>performance optimization</strong> for ML/RL workloads—from
-                        low-level systems programming to high-performance computing pipelines. I want to build
-                        the tools and infrastructure that researchers and engineers rely on.
-                    </p>
-                    <p>
-                        I also enjoy <strong>AI-assisted development</strong> and <strong>prompt engineering</strong>
-                        to push the boundaries of what's possible with modern coding workflows.
-                    </p>
+            <div class="about-layout">
+                <div class="about-main">
+                    <h2 class="about-headline">
+                        A student passionate about making
+                        <span class="text-gradient">ML systems run faster</span>
+                    </h2>
+                    <div class="about-text">
+                        <p>
+                            I'm currently pursuing a <strong>dual degree in Computer Science and Computer
+                                Engineering</strong>. While I haven't entered the industry yet, I'm actively building
+                            the foundations for a career in <strong>ML/RL infrastructure and performance
+                                engineering</strong>.
+                        </p>
+                        <p>
+                            My coursework, competitive programming experience, and personal projects are all stepping
+                            stones toward this goal. I believe the future of AI depends not just on better models, but
+                            on the <strong>systems and infrastructure</strong> that make them efficient at scale.
+                        </p>
+                        <p>
+                            I also enjoy exploring <strong>AI-assisted development</strong> — using tools like Copilot,
+                            Claude, and Gemini to push the boundaries of what a single developer can build.
+                        </p>
+                    </div>
                 </div>
-                <div class="about-cards">
-                    <div class="info-card">
-                        <div>
-                            <h3>Education</h3>
-                            <p>Dual Degree in CS & CE</p>
+                <div class="about-sidebar">
+                    <div class="detail-card">
+                        <div class="detail-icon">🎓</div>
+                        <div class="detail-info">
+                            <span class="detail-label">Education</span>
+                            <span class="detail-value">Dual Degree — CS & CE</span>
                         </div>
                     </div>
-                    <div class="info-card">
-                        <div>
-                            <h3>Organization</h3>
-                            <p><a href="https://github.com/Zero-AI-Hub" target="_blank">Zero-AI-Hub</a></p>
+                    <div class="detail-card">
+                        <div class="detail-icon">🎯</div>
+                        <div class="detail-info">
+                            <span class="detail-label">Career Focus</span>
+                            <span class="detail-value">ML/RL Infrastructure</span>
                         </div>
                     </div>
-                    <div class="info-card">
-                        <div>
-                            <h3>Focus</h3>
-                            <p>ML/RL Infrastructure • Performance</p>
+                    <div class="detail-card">
+                        <div class="detail-icon">⚡</div>
+                        <div class="detail-info">
+                            <span class="detail-label">Passion</span>
+                            <span class="detail-value">Performance Engineering</span>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-icon">🏢</div>
+                        <div class="detail-info">
+                            <span class="detail-label">Organization</span>
+                            <a href="https://github.com/Zero-AI-Hub" target="_blank"
+                                class="detail-value detail-link">Zero-AI-Hub</a>
                         </div>
                     </div>
                 </div>
@@ -124,61 +162,79 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <div class="section-header">
-                <span class="section-number">02</span>
-                <h2 class="section-title">Skills</h2>
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">02 — Skills & Experience</span>
             </div>
+            <h2 class="section-headline">What I work with</h2>
+
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Python</h3>
+                <div class="skill-card skill-card-lg">
+                    <div class="skill-header">
+                        <span class="skill-icon">🐍</span>
+                        <h3>Python</h3>
+                    </div>
                     <p>Self-taught. Used for competitive programming — participated in the
-                        <strong>Ada Byron regional ICPC contest</strong>. Also used in
+                        <strong>Ada Byron regional ICPC</strong> contest. Also used in
                         <em>Design and Analysis of Algorithms</em>.
                     </p>
                 </div>
-                <div class="skill-category">
-                    <h3>C / C++</h3>
+                <div class="skill-card skill-card-lg">
+                    <div class="skill-header">
+                        <span class="skill-icon">⚙️</span>
+                        <h3>C / C++</h3>
+                    </div>
                     <p>Learned through <em>Introduction to Programming</em>, <em>Data Structures</em>,
                         and <em>High Performance Computing</em>.</p>
                 </div>
-                <div class="skill-category">
-                    <h3>Java</h3>
+                <div class="skill-card skill-card-lg">
+                    <div class="skill-header">
+                        <span class="skill-icon">☕</span>
+                        <h3>Java</h3>
+                    </div>
                     <p>Learned through <em>Object Oriented Programming</em>, <em>Concurrency</em>,
                         and <em>Advanced Algorithms</em>.</p>
                 </div>
-                <div class="skill-category">
+
+                <div class="skill-card">
                     <h3>Other Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MIPS Assembly</span>
-                        <span class="skill-tag">VHDL</span>
-                        <span class="skill-tag">OpenMPI (basic)</span>
+                    <div class="pill-tags">
+                        <span class="pill">MIPS Assembly</span>
+                        <span class="pill">VHDL</span>
+                        <span class="pill">OpenMPI (basic)</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Algorithms & Competitive Programming</h3>
-                    <p>Strong interest in algorithms. Completed a <strong>20-hour university course</strong>
-                        on competitive programming. Participated in the <strong>Ada Byron regional ICPC</strong>
-                        contest.</p>
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <span class="skill-icon">🏆</span>
+                        <h3>Competitive Programming</h3>
+                    </div>
+                    <p>Strong interest in algorithms. Completed a <strong>20-hour course</strong> at university.
+                        Participated in the <strong>Ada Byron regional ICPC</strong>.</p>
                 </div>
-                <div class="skill-category">
+
+                <div class="skill-card">
                     <h3>Currently Learning</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Haskell</span>
+                    <div class="pill-tags">
+                        <span class="pill pill-active">Haskell</span>
                     </div>
                 </div>
-                <div class="skill-category">
+
+                <div class="skill-card">
                     <h3>Coming This Semester</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">OpenGL</span>
-                        <span class="skill-tag">OpenMP</span>
-                        <span class="skill-tag">CUDA (intro)</span>
+                    <div class="pill-tags">
+                        <span class="pill pill-upcoming">OpenGL</span>
+                        <span class="pill pill-upcoming">OpenMP</span>
+                        <span class="pill pill-upcoming">CUDA (intro)</span>
                     </div>
                 </div>
-                <div class="skill-category">
+
+                <div class="skill-card">
                     <h3>Want to Explore</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Reinforcement Learning</span>
-                        <span class="skill-tag">Large Language Models</span>
+                    <div class="pill-tags">
+                        <span class="pill pill-explore">Reinforcement Learning</span>
+                        <span class="pill pill-explore">Large Language Models</span>
                     </div>
                 </div>
             </div>
@@ -188,26 +244,38 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <div class="section-header">
-                <span class="section-number">03</span>
-                <h2 class="section-title">Projects</h2>
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">03 — Projects</span>
             </div>
+            <h2 class="section-headline">Things I've built</h2>
+
             <div class="projects-grid">
-                <article class="project-card featured">
-                    <span class="project-badge">Solo</span>
+                <article class="project-card project-featured">
+                    <div class="project-top">
+                        <span class="project-badge">Solo Project</span>
+                    </div>
                     <h3>Apoocalipsis Zombie</h3>
-                    <p>Turn-based zombie survival strategy game in Java with Swing GUI. Features dual interface, OOP
+                    <p>Turn-based zombie survival strategy game with Swing GUI. Features dual interface, OOP
                         architecture, and save/load system.</p>
                     <div class="project-tech">
                         <span>Java</span>
                         <span>Swing</span>
                         <span>OOP</span>
                     </div>
-                    <a href="https://github.com/WeishengZheng/MyAPOO" target="_blank" class="project-link">GitHub →</a>
+                    <a href="https://github.com/WeishengZheng/MyAPOO" target="_blank" class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
                 </article>
 
                 <article class="project-card">
-                    <span class="project-badge ai">AI-Assisted</span>
+                    <div class="project-top">
+                        <span class="project-badge badge-ai">AI-Assisted</span>
+                    </div>
                     <h3>EvoSim</h3>
                     <p>Browser-based evolutionary simulation where plants, herbivores, and predators interact and
                         evolve.</p>
@@ -215,11 +283,19 @@
                         <span>JavaScript</span>
                         <span>Canvas</span>
                     </div>
-                    <a href="https://github.com/Zero-AI-Hub/EvoSim" target="_blank" class="project-link">GitHub</a>
+                    <a href="https://github.com/Zero-AI-Hub/EvoSim" target="_blank" class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
                 </article>
 
                 <article class="project-card">
-                    <span class="project-badge ai">AI-Assisted</span>
+                    <div class="project-top">
+                        <span class="project-badge badge-ai">AI-Assisted</span>
+                    </div>
                     <h3>Background Creator</h3>
                     <p>Browser-based wallpaper generator with geometric patterns, symmetry modes, and real-time preview.
                     </p>
@@ -228,24 +304,44 @@
                         <span>Canvas API</span>
                     </div>
                     <a href="https://github.com/Zero-AI-Hub/CleanBackgroundCreator" target="_blank"
-                        class="project-link">GitHub</a>
+                        class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
                 </article>
 
                 <article class="project-card">
-                    <span class="project-badge ai">AI-Assisted</span>
+                    <div class="project-top">
+                        <span class="project-badge badge-ai">AI-Assisted</span>
+                    </div>
                     <h3>Pixel Art Transformer</h3>
-                    <p>Convert upscaled pixel art to true pixel dimensions. Perfect for AI-generated pixel art.</p>
+                    <p>Trying to make AI fake pixel art to useful real pixel art.</p>
                     <div class="project-tech">
                         <span>Python</span>
                         <span>Image Processing</span>
                     </div>
                     <a href="https://github.com/Zero-AI-Hub/PythonPixelArtTransformer" target="_blank"
-                        class="project-link">GitHub →</a>
+                        class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
                 </article>
             </div>
+
             <div class="projects-cta">
-                <a href="https://github.com/WeishengZheng" target="_blank" class="btn btn-outline">All Projects on
-                    GitHub →</a>
+                <a href="https://github.com/WeishengZheng" target="_blank" class="btn btn-ghost">
+                    All Projects on GitHub
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                        <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
@@ -253,33 +349,49 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <div class="section-header">
-                <span class="section-number">04</span>
-                <h2 class="section-title">Contact</h2>
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">04 — Contact</span>
             </div>
-            <p class="contact-intro">Interested in collaborating? Let's connect!</p>
-            <div class="contact-links">
-                <a href="https://github.com/WeishengZheng" target="_blank" class="contact-card">
-                    <span class="contact-icon">GH</span>
-                    <div>
-                        <strong>GitHub</strong>
-                        <span>WeishengZheng</span>
-                    </div>
-                </a>
-                <a href="https://www.linkedin.com/in/weisheng-zheng-397a3726a/" target="_blank" class="contact-card">
-                    <span class="contact-icon">LI</span>
-                    <div>
-                        <strong>LinkedIn</strong>
-                        <span>weisheng-zheng</span>
-                    </div>
-                </a>
-                <a href="https://github.com/Zero-AI-Hub" target="_blank" class="contact-card">
-                    <span class="contact-icon">ZH</span>
-                    <div>
-                        <strong>Zero-AI-Hub</strong>
-                        <span>AI Development Org</span>
-                    </div>
-                </a>
+            <div class="contact-content">
+                <h2 class="contact-headline">Let's <span class="text-gradient">connect</span></h2>
+                <p class="contact-intro">Interested in collaborating or just want to say hi? Feel free to reach out.</p>
+                <div class="contact-grid">
+                    <a href="https://github.com/WeishengZheng" target="_blank" class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>GitHub</strong>
+                            <span>WeishengZheng</span>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/weisheng-zheng-397a3726a/" target="_blank"
+                        class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>LinkedIn</strong>
+                            <span>weisheng-zheng</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/Zero-AI-Hub" target="_blank" class="contact-card">
+                        <div class="contact-icon">
+                            <img src="logo.svg" alt="Zero AI Hub" width="24" height="24">
+                        </div>
+                        <div>
+                            <strong>Zero AI Hub</strong>
+                            <span>AI Learning Organization</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -287,7 +399,10 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© 2025 Weisheng Zheng • Built with AI assistance</p>
+            <div class="footer-content">
+                <span class="footer-brand"><span class="brand-accent">W</span>Z</span>
+                <p>© 2026 Weisheng Zheng • Built with AI assistance</p>
+            </div>
         </div>
     </footer>
 

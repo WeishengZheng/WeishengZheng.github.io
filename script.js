@@ -1,26 +1,27 @@
 // ============================================
-// MINIMALIST PORTFOLIO - JAVASCRIPT
+// PORTFOLIO — INTERACTIONS
 // ============================================
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // MOBILE NAVIGATION
     // ============================================
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
-    const navLinks = document.querySelectorAll('.nav-link');
 
     if (navToggle) {
-        navToggle.addEventListener('click', function () {
+        navToggle.addEventListener('click', () => {
             navToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
         });
     }
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', function () {
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
             if (navToggle) navToggle.classList.remove('active');
             if (navMenu) navMenu.classList.remove('active');
+            document.body.style.overflow = '';
         });
     });
 
@@ -28,14 +29,19 @@ document.addEventListener('DOMContentLoaded', function () {
     // NAVBAR SCROLL EFFECT
     // ============================================
     const navbar = document.querySelector('.navbar');
+    let lastScroll = 0;
 
-    window.addEventListener('scroll', function () {
-        if (window.scrollY > 50) {
+    const handleScroll = () => {
+        const scroll = window.scrollY;
+        if (scroll > 60) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-    });
+        lastScroll = scroll;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     // ============================================
     // SMOOTH SCROLL
@@ -45,83 +51,103 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+                const offset = 80;
+                const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
             }
         });
     });
 
-    // Grain animation is handled purely by CSS keyframes now
-    // No JavaScript manipulation needed for the flicker effect
-
     // ============================================
-    // SCROLL REVEAL ANIMATIONS
+    // SCROLL REVEAL
     // ============================================
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    const revealElements = document.querySelectorAll(
+        'section:not(#hero), .skill-card, .project-card, .detail-card, .contact-card, .hero-stats'
+    );
 
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-            }
-        });
-    }, observerOptions);
+    const revealObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
 
-    // Observe elements
-    document.querySelectorAll('section, .project-card, .skill-category, .info-card, .contact-card').forEach(el => {
-        el.classList.add('reveal-element');
+    revealElements.forEach(el => {
+        el.classList.add('reveal');
         revealObserver.observe(el);
     });
 
     // ============================================
-    // CORNER DECORATION ANIMATION
+    // TILT EFFECT ON CARDS (subtle, desktop only)
     // ============================================
-    const corners = document.querySelectorAll('.corner-decoration');
+    if (window.matchMedia('(min-width: 768px)').matches) {
+        const tiltCards = document.querySelectorAll('.skill-card, .project-card');
 
-    window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        const rotation = scrolled * 0.05;
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -3;
+                const rotateY = ((x - centerX) / centerX) * 3;
 
-        corners.forEach((corner, index) => {
-            const direction = index % 2 === 0 ? 1 : -1;
-            corner.style.transform = `rotate(${rotation * direction}deg)`;
-        });
-    });
+                card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+            });
 
-    // ============================================
-    // HOVER EFFECTS FOR CARDS
-    // ============================================
-    const cards = document.querySelectorAll('.project-card, .skill-category, .contact-card');
-
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-4px)';
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0)';
-        });
-    });
-
-    // ============================================
-    // CIRCLE PARALLAX
-    // ============================================
-    const heroCircle = document.querySelector('.hero-circle');
-
-    if (heroCircle) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            const scale = 1 + (scrolled * 0.0003);
-            const opacity = Math.max(0, 1 - (scrolled * 0.002));
-            heroCircle.style.transform = `translate(-50%, -50%) scale(${scale})`;
-            heroCircle.style.opacity = opacity;
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
         });
     }
 
-    console.log('✨ Minimalist Portfolio loaded');
+    // ============================================
+    // HERO PARALLAX GLOWS
+    // ============================================
+    const glows = document.querySelectorAll('.hero-glow');
+
+    if (glows.length > 0) {
+        window.addEventListener('scroll', () => {
+            const scroll = window.scrollY;
+            glows.forEach((glow, i) => {
+                const speed = i === 0 ? 0.15 : 0.1;
+                const opacity = Math.max(0, 0.4 - scroll * 0.0005);
+                glow.style.transform = `translateY(${scroll * speed}px)`;
+                glow.style.opacity = opacity;
+            });
+        }, { passive: true });
+    }
+
+    // ============================================
+    // ACTIVE NAV LINK HIGHLIGHT
+    // ============================================
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+
+    const highlightNav = () => {
+        const scroll = window.scrollY + 150;
+        sections.forEach(section => {
+            const top = section.offsetTop;
+            const height = section.offsetHeight;
+            const id = section.getAttribute('id');
+
+            if (scroll >= top && scroll < top + height) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    };
+
+    window.addEventListener('scroll', highlightNav, { passive: true });
+
+    console.log('✨ Portfolio loaded');
 });
