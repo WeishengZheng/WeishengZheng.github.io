@@ -5,6 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // INTERACTIVE VECTOR FIELD (Hero Background)
+    // Warm red / orange / yellow
     // ============================================
     const canvas = document.getElementById('vectorField');
     if (canvas) {
@@ -12,18 +13,22 @@ document.addEventListener('DOMContentLoaded', () => {
         let width, height;
         let mouseX = -1000, mouseY = -1000;
         let isMouseInHero = false;
-        const CELL_SIZE = 28;
-        const INFLUENCE_RADIUS = 180;
-        const LINE_LENGTH = 16;
 
-        // Warm color palette: red, orange, yellow
+        // Bigger, more visible vectors
+        const CELL_SIZE = 38;
+        const INFLUENCE_RADIUS = 220;
+        const LINE_LENGTH = 24;
+
+        // Warm color palette
         const colors = [
-            { r: 255, g: 75, b: 43 },    // red-orange
-            { r: 255, g: 107, b: 53 },   // orange
-            { r: 255, g: 153, b: 51 },   // deep orange
-            { r: 247, g: 183, b: 51 },   // amber
-            { r: 247, g: 201, b: 72 },   // yellow
-            { r: 255, g: 95, b: 64 },    // red
+            { r: 239, g: 68, b: 68 },    // red
+            { r: 249, g: 115, b: 22 },   // orange
+            { r: 251, g: 146, b: 60 },   // light orange
+            { r: 245, g: 158, b: 11 },   // amber
+            { r: 234, g: 179, b: 8 },    // yellow
+            { r: 253, g: 186, b: 116 },  // peach
+            { r: 220, g: 38, b: 38 },    // deep red
+            { r: 251, g: 191, b: 36 },   // gold
         ];
 
         function resize() {
@@ -35,32 +40,32 @@ document.addEventListener('DOMContentLoaded', () => {
         resize();
         window.addEventListener('resize', resize);
 
-        // Track mouse position relative to canvas
+        // Track mouse
         const hero = canvas.parentElement;
+        hero.style.cursor = 'default';
+
         hero.addEventListener('mousemove', (e) => {
             const rect = canvas.getBoundingClientRect();
             mouseX = e.clientX - rect.left;
             mouseY = e.clientY - rect.top;
             isMouseInHero = true;
-            // Allow pointer events on the hero content, not the canvas
-            canvas.style.pointerEvents = 'none';
         });
 
         hero.addEventListener('mouseleave', () => {
             isMouseInHero = false;
         });
 
-        // Noise function for organic movement
+        // Noise for organic flow
         function noise(x, y, t) {
-            return Math.sin(x * 0.02 + t) * Math.cos(y * 0.02 + t * 0.7) +
-                Math.sin(x * 0.01 - t * 0.5) * Math.cos(y * 0.015 + t * 0.3);
+            return Math.sin(x * 0.015 + t) * Math.cos(y * 0.015 + t * 0.7) +
+                Math.sin(x * 0.008 - t * 0.5) * Math.cos(y * 0.012 + t * 0.3);
         }
 
         let time = 0;
 
         function draw() {
             ctx.clearRect(0, 0, width, height);
-            time += 0.008;
+            time += 0.006;
 
             const cols = Math.floor(width / CELL_SIZE) + 2;
             const rows = Math.floor(height / CELL_SIZE) + 2;
@@ -84,30 +89,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         if (dist < INFLUENCE_RADIUS) {
                             influenceFactor = 1 - dist / INFLUENCE_RADIUS;
-                            influenceFactor = influenceFactor * influenceFactor; // ease-in
+                            influenceFactor = influenceFactor * influenceFactor;
                             const mouseAngle = Math.atan2(dy, dx);
-                            // Vectors point AWAY from mouse
-                            angle = angle * (1 - influenceFactor * 0.85) + (mouseAngle + Math.PI) * influenceFactor * 0.85;
+                            angle = angle * (1 - influenceFactor * 0.9) + (mouseAngle + Math.PI) * influenceFactor * 0.9;
                         }
                     }
 
-                    // Color selection based on position + time
+                    // Color from position + time
                     const colorIndex = Math.abs(Math.floor(
-                        noise(x * 0.5, y * 0.5, time * 0.3) * colors.length + time
+                        noise(x * 0.4, y * 0.4, time * 0.25) * colors.length + time * 2
                     )) % colors.length;
                     const color = colors[colorIndex];
 
-                    // Dynamic opacity: base + mouse boost
-                    const baseOpacity = 0.12 + Math.abs(noise(x, y, time * 0.5)) * 0.08;
-                    const opacity = Math.min(0.6, baseOpacity + influenceFactor * 0.45);
+                    // Higher base opacity = more visible
+                    const baseOpacity = 0.18 + Math.abs(noise(x, y, time * 0.5)) * 0.12;
+                    const opacity = Math.min(0.75, baseOpacity + influenceFactor * 0.5);
 
-                    // Line width gets thicker near mouse
-                    const lineWidth = 1 + influenceFactor * 1.5;
+                    // Line width
+                    const lineWidth = 1.5 + influenceFactor * 2;
 
-                    // Draw vector line
-                    const endX = x + Math.cos(angle) * LINE_LENGTH * (0.6 + influenceFactor * 0.6);
-                    const endY = y + Math.sin(angle) * LINE_LENGTH * (0.6 + influenceFactor * 0.6);
+                    // Line length increases near mouse
+                    const len = LINE_LENGTH * (0.65 + influenceFactor * 0.5);
+                    const endX = x + Math.cos(angle) * len;
+                    const endY = y + Math.sin(angle) * len;
 
+                    // Draw the vector
                     ctx.beginPath();
                     ctx.moveTo(x, y);
                     ctx.lineTo(endX, endY);
@@ -116,11 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     ctx.lineCap = 'round';
                     ctx.stroke();
 
-                    // Small dot at the tip when influenced
-                    if (influenceFactor > 0.2) {
+                    // Arrowhead / dot at the tip
+                    if (influenceFactor > 0.15) {
+                        const dotSize = 2 + influenceFactor * 2;
                         ctx.beginPath();
-                        ctx.arc(endX, endY, 1.5 * influenceFactor, 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity * 0.8})`;
+                        ctx.arc(endX, endY, dotSize, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity * 0.7})`;
                         ctx.fill();
                     }
                 }
@@ -133,52 +140,97 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================
+    // SIDE NAVIGATION — Active section tracking
+    // ============================================
+    const sideNav = document.getElementById('sideNav');
+    if (sideNav) {
+        const navItems = sideNav.querySelectorAll('.side-nav-item');
+        const sections = document.querySelectorAll('section[id]');
+
+        const updateActiveNav = () => {
+            const scroll = window.scrollY + window.innerHeight / 3;
+
+            let activeId = 'hero';
+            sections.forEach(section => {
+                if (scroll >= section.offsetTop) {
+                    activeId = section.id;
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.toggle('active', item.dataset.section === activeId);
+            });
+        };
+
+        window.addEventListener('scroll', updateActiveNav, { passive: true });
+        updateActiveNav();
+
+        // Smooth scroll on click
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(item.getAttribute('href'));
+                if (target) {
+                    const offset = target.id === 'hero' ? 0 : 40;
+                    window.scrollTo({
+                        top: target.offsetTop - offset,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+
+    // ============================================
     // MOBILE NAVIGATION
     // ============================================
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
+    // Also handle org page nav toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
-
-    if (navToggle) {
+    if (navToggle && navMenu) {
         navToggle.addEventListener('click', () => {
             navToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
             document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
         });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
     }
 
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navToggle) navToggle.classList.remove('active');
-            if (navMenu) navMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    });
-
     // ============================================
-    // NAVBAR SCROLL EFFECT
+    // SMOOTH SCROLL (for # links)
     // ============================================
-    const navbar = document.querySelector('.navbar');
-
-    const handleScroll = () => {
-        const scroll = window.scrollY;
-        if (scroll > 60) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    // ============================================
-    // SMOOTH SCROLL
-    // ============================================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]:not(.side-nav-item)').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                const offset = 80;
+                const offset = 60;
                 const top = target.getBoundingClientRect().top + window.scrollY - offset;
                 window.scrollTo({ top, behavior: 'smooth' });
             }
@@ -209,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ============================================
-    // TILT EFFECT ON CARDS (subtle, desktop only)
+    // TILT EFFECT ON CARDS (desktop only)
     // ============================================
     if (window.matchMedia('(min-width: 768px)').matches) {
         const tiltCards = document.querySelectorAll('.skill-card, .project-card');
@@ -233,31 +285,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================
-    // ACTIVE NAV LINK HIGHLIGHT
-    // ============================================
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-
-    const highlightNav = () => {
-        const scroll = window.scrollY + 150;
-        sections.forEach(section => {
-            const top = section.offsetTop;
-            const height = section.offsetHeight;
-            const id = section.getAttribute('id');
-
-            if (scroll >= top && scroll < top + height) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    };
-
-    window.addEventListener('scroll', highlightNav, { passive: true });
-
-    console.log('✨ Portfolio loaded');
+    console.log('🔥 Portfolio loaded');
 });
