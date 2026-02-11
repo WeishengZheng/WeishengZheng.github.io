@@ -16,6 +16,30 @@
 </head>
 
 <body>
+    <!-- Side Navigation -->
+    <nav class="side-nav" id="sideNav">
+        <a href="#hero" class="side-nav-item active" data-section="hero">
+            <span class="nav-dot"></span>
+            <span class="nav-label">Home</span>
+        </a>
+        <a href="#about" class="side-nav-item" data-section="about">
+            <span class="nav-dot"></span>
+            <span class="nav-label">About</span>
+        </a>
+        <a href="#skills" class="side-nav-item" data-section="skills">
+            <span class="nav-dot"></span>
+            <span class="nav-label">Skills</span>
+        </a>
+        <a href="#projects" class="side-nav-item" data-section="projects">
+            <span class="nav-dot"></span>
+            <span class="nav-label">Projects</span>
+        </a>
+        <a href="#contact" class="side-nav-item" data-section="contact">
+            <span class="nav-dot"></span>
+            <span class="nav-label">Contact</span>
+        </a>
+    </nav>
+
     <!-- Mobile Top Bar -->
     <div class="mobile-bar" id="mobileBar">
         <span class="mobile-brand"><span class="brand-accent">W</span>Z</span>
@@ -35,14 +59,10 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <canvas id="vectorField" class="hero-canvas"></canvas>
-        <!-- Floating glass orbs for decoration -->
-        <div class="glass-orb glass-orb-1"></div>
-        <div class="glass-orb glass-orb-2"></div>
-        <div class="glass-orb glass-orb-3"></div>
 
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge glass-badge">
+                <div class="hero-badge">
                     <span class="badge-dot"></span>
                     Open to opportunities
                 </div>
@@ -60,10 +80,10 @@
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="#contact" class="btn btn-glass">Get in Touch</a>
-                    <a href="organization.html" class="btn btn-glass">Organization</a>
+                    <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+                    <a href="organization.html" class="btn btn-ghost">Organization</a>
                 </div>
-                <div class="hero-stats glass-panel">
+                <div class="hero-stats">
                     <div class="stat">
                         <span class="stat-value">5+</span>
                         <span class="stat-label">Languages</span>
@@ -83,7 +103,7 @@
         </div>
 
         <div class="scroll-indicator">
-            <div class="scroll-mouse glass-scroll">
+            <div class="scroll-mouse">
                 <div class="scroll-dot"></div>
             </div>
         </div>
@@ -91,7 +111,6 @@
 
     <!-- About Section -->
     <section id="about" class="about">
-        <div class="glass-bg-orb about-orb"></div>
         <div class="container">
             <div class="section-label">
                 <span class="label-line"></span>
@@ -122,28 +141,28 @@
                     </div>
                 </div>
                 <div class="about-sidebar">
-                    <div class="detail-card glass-card">
+                    <div class="detail-card">
                         <div class="detail-icon">🎓</div>
                         <div class="detail-info">
                             <span class="detail-label">Education</span>
                             <span class="detail-value">Dual Degree — CS & CE</span>
                         </div>
                     </div>
-                    <div class="detail-card glass-card">
+                    <div class="detail-card">
                         <div class="detail-icon">🎯</div>
                         <div class="detail-info">
                             <span class="detail-label">Career Focus</span>
                             <span class="detail-value">ML/RL Infrastructure</span>
                         </div>
                     </div>
-                    <div class="detail-card glass-card">
+                    <div class="detail-card">
                         <div class="detail-icon">⚡</div>
                         <div class="detail-info">
                             <span class="detail-label">Passion</span>
                             <span class="detail-value">Performance Engineering</span>
                         </div>
                     </div>
-                    <div class="detail-card glass-card">
+                    <div class="detail-card">
                         <div class="detail-icon">🏢</div>
                         <div class="detail-info">
                             <span class="detail-label">Organization</span>
@@ -158,7 +177,6 @@
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
-        <div class="glass-bg-orb skills-orb"></div>
         <div class="container">
             <div class="section-label">
                 <span class="label-line"></span>
@@ -167,7 +185,7 @@
             <h2 class="section-headline">What I work with</h2>
 
             <div class="skills-grid">
-                <div class="skill-card glass-card skill-card-lg">
+                <div class="skill-card skill-card-lg">
                     <div class="skill-header">
                         <span class="skill-icon">🐍</span>
                         <h3>Python</h3>
@@ -177,7 +195,7 @@
                         <em>Design and Analysis of Algorithms</em>.
                     </p>
                 </div>
-                <div class="skill-card glass-card skill-card-lg">
+                <div class="skill-card skill-card-lg">
                     <div class="skill-header">
                         <span class="skill-icon">⚙️</span>
                         <h3>C / C++</h3>
@@ -185,7 +203,7 @@
                     <p>Learned through <em>Introduction to Programming</em>, <em>Data Structures</em>,
                         and <em>High Performance Computing</em>.</p>
                 </div>
-                <div class="skill-card glass-card skill-card-lg">
+                <div class="skill-card skill-card-lg">
                     <div class="skill-header">
                         <span class="skill-icon">☕</span>
                         <h3>Java</h3>
@@ -194,16 +212,16 @@
                         and <em>Advanced Algorithms</em>.</p>
                 </div>
 
-                <div class="skill-card glass-card">
+                <div class="skill-card">
                     <h3>Other Languages</h3>
                     <div class="pill-tags">
-                        <span class="pill glass-pill">MIPS Assembly</span>
-                        <span class="pill glass-pill">VHDL</span>
-                        <span class="pill glass-pill">OpenMPI (basic)</span>
+                        <span class="pill">MIPS Assembly</span>
+                        <span class="pill">VHDL</span>
+                        <span class="pill">OpenMPI (basic)</span>
                     </div>
                 </div>
 
-                <div class="skill-card glass-card">
+                <div class="skill-card">
                     <div class="skill-header">
                         <span class="skill-icon">🏆</span>
                         <h3>Competitive Programming</h3>
@@ -212,27 +230,27 @@
                         Participated in the <strong>Ada Byron regional ICPC</strong>.</p>
                 </div>
 
-                <div class="skill-card glass-card">
+                <div class="skill-card">
                     <h3>Currently Learning</h3>
                     <div class="pill-tags">
-                        <span class="pill pill-active glass-pill">Haskell</span>
+                        <span class="pill pill-active">Haskell</span>
                     </div>
                 </div>
 
-                <div class="skill-card glass-card">
+                <div class="skill-card">
                     <h3>Coming This Semester</h3>
                     <div class="pill-tags">
-                        <span class="pill pill-upcoming glass-pill">OpenGL</span>
-                        <span class="pill pill-upcoming glass-pill">OpenMP</span>
-                        <span class="pill pill-upcoming glass-pill">CUDA (intro)</span>
+                        <span class="pill pill-upcoming">OpenGL</span>
+                        <span class="pill pill-upcoming">OpenMP</span>
+                        <span class="pill pill-upcoming">CUDA (intro)</span>
                     </div>
                 </div>
 
-                <div class="skill-card glass-card">
+                <div class="skill-card">
                     <h3>Want to Explore</h3>
                     <div class="pill-tags">
-                        <span class="pill pill-explore glass-pill">Reinforcement Learning</span>
-                        <span class="pill pill-explore glass-pill">Large Language Models</span>
+                        <span class="pill pill-explore">Reinforcement Learning</span>
+                        <span class="pill pill-explore">Large Language Models</span>
                     </div>
                 </div>
             </div>
@@ -241,7 +259,6 @@
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
-        <div class="glass-bg-orb projects-orb"></div>
         <div class="container">
             <div class="section-label">
                 <span class="label-line"></span>
@@ -250,7 +267,7 @@
             <h2 class="section-headline">Things I've built</h2>
 
             <div class="projects-grid">
-                <article class="project-card glass-card project-featured">
+                <article class="project-card project-featured">
                     <div class="project-top">
                         <span class="project-badge">Solo Project</span>
                     </div>
@@ -258,9 +275,9 @@
                     <p>Turn-based zombie survival strategy game with Swing GUI. Features dual interface, OOP
                         architecture, and save/load system.</p>
                     <div class="project-tech">
-                        <span class="glass-pill-sm">Java</span>
-                        <span class="glass-pill-sm">Swing</span>
-                        <span class="glass-pill-sm">OOP</span>
+                        <span>Java</span>
+                        <span>Swing</span>
+                        <span>OOP</span>
                     </div>
                     <a href="https://github.com/WeishengZheng/MyAPOO" target="_blank" class="project-link">
                         View on GitHub
@@ -271,7 +288,7 @@
                     </a>
                 </article>
 
-                <article class="project-card glass-card">
+                <article class="project-card">
                     <div class="project-top">
                         <span class="project-badge badge-collab">AI-Assisted</span>
                     </div>
@@ -279,8 +296,8 @@
                     <p>Browser-based evolutionary simulation where plants, herbivores, and predators interact and
                         evolve.</p>
                     <div class="project-tech">
-                        <span class="glass-pill-sm">JavaScript</span>
-                        <span class="glass-pill-sm">Canvas</span>
+                        <span>JavaScript</span>
+                        <span>Canvas</span>
                     </div>
                     <a href="https://github.com/Zero-AI-Hub/EvoSim" target="_blank" class="project-link">
                         View on GitHub
@@ -291,7 +308,7 @@
                     </a>
                 </article>
 
-                <article class="project-card glass-card">
+                <article class="project-card">
                     <div class="project-top">
                         <span class="project-badge badge-collab">AI-Assisted</span>
                     </div>
@@ -299,8 +316,8 @@
                     <p>Browser-based wallpaper generator with geometric patterns, symmetry modes, and real-time preview.
                     </p>
                     <div class="project-tech">
-                        <span class="glass-pill-sm">JavaScript</span>
-                        <span class="glass-pill-sm">Canvas API</span>
+                        <span>JavaScript</span>
+                        <span>Canvas API</span>
                     </div>
                     <a href="https://github.com/Zero-AI-Hub/CleanBackgroundCreator" target="_blank"
                         class="project-link">
@@ -312,15 +329,15 @@
                     </a>
                 </article>
 
-                <article class="project-card glass-card">
+                <article class="project-card">
                     <div class="project-top">
                         <span class="project-badge badge-collab">AI-Assisted</span>
                     </div>
                     <h3>Pixel Art Transformer</h3>
                     <p>Trying to make AI fake pixel art to useful real pixel art.</p>
                     <div class="project-tech">
-                        <span class="glass-pill-sm">Python</span>
-                        <span class="glass-pill-sm">Image Processing</span>
+                        <span>Python</span>
+                        <span>Image Processing</span>
                     </div>
                     <a href="https://github.com/Zero-AI-Hub/PythonPixelArtTransformer" target="_blank"
                         class="project-link">
@@ -334,7 +351,7 @@
             </div>
 
             <div class="projects-cta">
-                <a href="https://github.com/WeishengZheng" target="_blank" class="btn btn-glass">
+                <a href="https://github.com/WeishengZheng" target="_blank" class="btn btn-ghost">
                     All Projects on GitHub
                     <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                         <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5"
@@ -347,7 +364,6 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="glass-bg-orb contact-orb"></div>
         <div class="container">
             <div class="section-label">
                 <span class="label-line"></span>
@@ -357,7 +373,7 @@
                 <h2 class="contact-headline">Let's <span class="text-gradient">connect</span></h2>
                 <p class="contact-intro">Interested in collaborating or just want to say hi? Feel free to reach out.</p>
                 <div class="contact-grid">
-                    <a href="https://github.com/WeishengZheng" target="_blank" class="contact-card glass-card">
+                    <a href="https://github.com/WeishengZheng" target="_blank" class="contact-card">
                         <div class="contact-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path
@@ -370,7 +386,7 @@
                         </div>
                     </a>
                     <a href="https://www.linkedin.com/in/weisheng-zheng-397a3726a/" target="_blank"
-                        class="contact-card glass-card">
+                        class="contact-card">
                         <div class="contact-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path
@@ -382,7 +398,7 @@
                             <span>weisheng-zheng</span>
                         </div>
                     </a>
-                    <a href="https://github.com/Zero-AI-Hub" target="_blank" class="contact-card glass-card">
+                    <a href="https://github.com/Zero-AI-Hub" target="_blank" class="contact-card">
                         <div class="contact-icon">
                             <img src="logo.svg" alt="Zero AI Hub" width="24" height="24">
                         </div>
@@ -399,7 +415,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content glass-panel">
+            <div class="footer-content">
                 <span class="footer-brand"><span class="brand-accent">W</span>Z</span>
                 <p>© 2026 Weisheng Zheng • Built with AI assistance</p>
             </div>

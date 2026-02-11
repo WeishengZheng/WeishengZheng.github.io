@@ -191,8 +191,47 @@ document.addEventListener('DOMContentLoaded', () => {
         draw();
     }
 
+    // ============================================
+    // SIDE NAVIGATION — Active section tracking
+    // ============================================
+    const sideNav = document.getElementById('sideNav');
+    if (sideNav) {
+        const navItems = sideNav.querySelectorAll('.side-nav-item');
+        const sections = document.querySelectorAll('section[id]');
 
+        const updateActiveNav = () => {
+            const scroll = window.scrollY + window.innerHeight / 3;
 
+            let activeId = 'hero';
+            sections.forEach(section => {
+                if (scroll >= section.offsetTop) {
+                    activeId = section.id;
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.toggle('active', item.dataset.section === activeId);
+            });
+        };
+
+        window.addEventListener('scroll', updateActiveNav, { passive: true });
+        updateActiveNav();
+
+        // Smooth scroll on click
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(item.getAttribute('href'));
+                if (target) {
+                    const offset = target.id === 'hero' ? 0 : 40;
+                    window.scrollTo({
+                        top: target.offsetTop - offset,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
 
     // ============================================
     // MOBILE NAVIGATION
